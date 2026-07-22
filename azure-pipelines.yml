@@ -22,5 +22,7 @@ steps:
     sshEndpoint: 'azure-linux-vm-ssh'
     runOptions: 'commands'
     commands: |
-      ls -la /home/azureuser/deployment
-      find /home/azureuser/deployment -name deploy.sh
+       pwd
+       ls -la
+       ls -la /home/azureuser
+       ls -la /home/azureuser/deployment
