@@ -24,8 +24,6 @@ steps:
     commands: |
       echo "Checking deployment files"
       find ~/deployment -name deploy.sh
-      ls -la ~/deployment
       ls -la ~/deployment/scripts
       chmod +x ~/deployment/scripts/deploy.sh
-      cd ~/deployment
-      ./scripts/deploy.sh
+      bash ~/deployment/scripts/deploy.sh
