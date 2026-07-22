@@ -25,4 +25,4 @@ steps:
        echo "Checking deployment files"
        ls -R ~/deployment
        chmod +x ~/deployment/scripts/deploy.sh
-       bash ~/deployment/scripts/deploy.s
+       bash ~/deployment/scripts/deploy.sh
