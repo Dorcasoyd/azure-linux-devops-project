@@ -14,7 +14,7 @@ steps:
     sourceFolder: '$(System.DefaultWorkingDirectory)'
     contents: |
       scripts/deploy.sh
-      index.html
+      Website/index.html
     targetFolder: '~/deployment'
 
 - task: SSH@0
@@ -27,4 +27,5 @@ steps:
       ls -la ~/deployment
       ls -la ~/deployment/scripts
       chmod +x ~/deployment/scripts/deploy.sh
-      ~/deployment/scripts/deploy.sh
+      cd ~/deployment
+      ./scripts/deploy.sh
