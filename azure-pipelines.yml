@@ -23,6 +23,4 @@ steps:
     runOptions: 'commands'
     commands: |
        pwd
-       ls -la
-       ls -la /home/azureuser
-       ls -la /home/azureuser/deployment
+       ls -la /home/azureuser/deployment/scripts
