@@ -8,11 +8,23 @@ steps:
 
 - checkout: self
 
-- script: |
-    echo "Starting Azure Linux DevOps deployment"
-    ls
-  displayName: "Check repository files"
+- task: CopyFilesOverSSH@0
+  inputs:
+    sshEndpoint: 'azure-linux-vm-ssh'
+    sourceFolder: '$(System.DefaultWorkingDirectory)'
+    contents: |
+      scripts/deploy.sh
+      index.html
+    targetFolder: '~/deployment'
 
-- script: |
-    echo "Website deployment ready"
-  displayName: "Deployment complete"
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'azure-linux-vm-ssh'
+    runOptions: 'commands'
+    commands: |
+      echo "Checking deployment files"
+      find ~/deployment -name deploy.sh
+      ls -la ~/deployment
+      ls -la ~/deployment/scripts
+      chmod +x ~/deployment/scripts/deploy.sh
+      ~/deployment/scripts/deploy.sh
