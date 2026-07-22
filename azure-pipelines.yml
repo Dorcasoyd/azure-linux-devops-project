@@ -15,13 +15,14 @@ steps:
     contents: |
       website/**
       scripts/**
-    targetFolder: '/home/azureuser/deployment'
+    targetFolder: '~/deployment'
 
 - task: SSH@0
   inputs:
     sshEndpoint: 'azure-linux-vm-ssh'
     runOptions: 'commands'
     commands: |
-         pwd
-         ls -la ~
-         find ~ -name deploy.sh
+      ls -la ~/deployment/scripts
+      chmod +x ~/deployment/scripts/deploy.sh
+      cd ~/deployment
+      ./scripts/deploy.sh
