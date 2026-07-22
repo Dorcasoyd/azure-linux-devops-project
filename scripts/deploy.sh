@@ -2,7 +2,7 @@
 
 echo "Starting website deployment..."
 
-sudo cp index.html /var/www/html/
+sudo cp Website/index.html /var/www/html/
 
 sudo systemctl restart apache2
 
