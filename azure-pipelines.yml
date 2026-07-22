@@ -1,0 +1,18 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+
+- checkout: self
+
+- script: |
+    echo "Starting Azure Linux DevOps deployment"
+    ls
+  displayName: "Check repository files"
+
+- script: |
+    echo "Website deployment ready"
+  displayName: "Deployment complete"
